@@ -9,7 +9,21 @@
     <p><input type="text" v-model="operadoras"></p>
     
     <p><button type = "button" id = "get" @click = "fetchAPIData">BUSCAR</button></p>
-
+    <h4>Relação</h4>
+    <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Registro</th>
+                    <th>Razão Social</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="row in opList" :key="row.Registro_ANS">
+                    <td>{{row.Registro_ANS}}</td>
+                    <td>{{row.Razao_Social}}</td>
+                </tr>
+            </tbody>
+        </table>
   </div>
 </template>
 
@@ -20,6 +34,14 @@ export default {
   data() {
     return {
       operadoras: '',
+      listaOperadoras:[],
+      opList: [
+                { Registro_ANS: '1', Razao_Social: 'Murphy'},
+                { Registro_ANS: '2', Razao_Social: 'Reynolds'},
+                { Registro_ANS: '3', Razao_Social: 'Jabowski'},
+                { Registro_ANS: '4', Razao_Social: 'Glaser'},
+                { Registro_ANS: '5', Razao_Social: 'Bilzerian'}
+            ]
     };
   },
 
@@ -43,6 +65,7 @@ export default {
             })
             .then(response => { 
                 if(response.ok){
+                    this.listaOperadoras = response.json()
                     return response.json()    
                 } else{
                     alert("Server returned " + response.status + " : " + response.statusText);
