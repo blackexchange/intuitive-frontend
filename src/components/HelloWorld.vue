@@ -38,11 +38,8 @@ export default {
       operadoras: '',
       listaOperadoras:[],
       opList: [
-                { Registro_ANS: '1', Razao_Social: 'Murphy'},
-                { Registro_ANS: '2', Razao_Social: 'Reynolds'},
-                { Registro_ANS: '3', Razao_Social: 'Jabowski'},
-                { Registro_ANS: '4', Razao_Social: 'Glaser'},
-                { Registro_ANS: '5', Razao_Social: 'Bilzerian'}
+                { Registro_ANS: '-', Razao_Social: '-'}
+              
             ]
     };
   },
