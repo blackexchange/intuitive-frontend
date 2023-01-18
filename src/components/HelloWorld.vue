@@ -30,6 +30,8 @@
 <script>
 export default {
   name: 'HelloWorld',
+  result:"",
+  responseAvailable:false,
 
   data() {
     return {
@@ -65,15 +67,16 @@ export default {
             })
             .then(response => { 
                 if(response.ok){
-                    this.listaOperadoras = response.json()
+                
                     return response.json()    
                 } else{
                     alert("Server returned " + response.status + " : " + response.statusText);
                 }                
             })
             .then(response => {
-                this.result = response.body; 
-                this.responseAvailable = true;
+                this.result = response; 
+                this.opList = this.result['operadoras']
+                console.log(this.opList)
             })
             .catch(err => {
                 console.log(err);
