@@ -55,7 +55,7 @@ export default {
         fetchAPIData( ) { 
 
           
-            fetch("http://127.0.0.1:8000/operadoras/"+this.operadoras, {
+            fetch("http://18.204.14.178/operadoras/"+this.operadoras, {
                 "method": "GET",
                 "headers": {
                     'Access-Control-Allow-Origin': '*',
